@@ -1,4 +1,4 @@
-/* Copyright 2021 Alan Pocklington
+/* Copyright 2021 Jonavin Eng
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,48 +14,17 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include QMK_KEYBOARD_H
+#pragma once
 
-enum ajp10304_layers {
-  _QWERTY,
-  _MAC,
-  _LOWER,
-  _MLWR,
-  _RAISE,
-  _MRSE,
-  _FUNC,
-  _MFNC,
-  _FUNC2,
-  _MFNC2,
-  _ADJUST,
-  _MOUSE,
-  _NUMPAD
-};
+#define TAPPING_TOGGLE 2           // TT () set to two taps
 
-enum ajp10304_keycodes {
-  QWERTY = SAFE_RANGE,
-  MAC,
-  FUNC,
-  MFNC,
-  FUNC2,
-  MFNC2,
-  LOWER,
-  MLWR,
-  RAISE,
-  MRSE,
-  MOUSE,
-  NUMPAD,
-  M_CUSTOM,
-  M_WORD_SEL,
-  M_WORD_SEL_MAC,
-  M_LINE_SEL,
-  M_LINE_SEL_MAC,
-  M_LINE_DEL,
-  M_LINE_DEL_MAC,
-  M_DUP,
-  M_DUP_MAC,
-  M_JOIN,
-  M_JOIN_MAC,
-  M_MODE,
-  M_MODE_MAC
-};
+/*  Handle GRAVESC combo keys */
+#define GRAVE_ESC_ALT_OVERRIDE     // Always send Escape if Alt is pressed
+#define GRAVE_ESC_CTRL_OVERRIDE    // Always send Escape if Control is pressed
+
+#define TAPPING_TERM 180
+
+#ifdef RGB_MATRIX_ENABLE
+    #define RGB_MATRIX_STARTUP_MODE RGB_MATRIX_SOLID_COLOR
+    #define RGB_DISABLE_WHEN_USB_SUSPENDED true
+#endif
