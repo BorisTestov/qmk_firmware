@@ -34,3 +34,14 @@ QMK is developed and maintained by Jack Humbert of OLKB with contributions from 
 ## Official Website
 
 [qmk.fm](https://qmk.fm) is the official website of QMK, where you can find links to this page, the documentation, and the keyboards supported by QMK.
+
+## How To Start
+
+```
+python3 -m pip install -U qmk
+qmk setup BorisTestov/qmk_firmware
+qmk config user.keyboard=massdrop/alt
+qmk config user.keymap=fylch_alt
+qmk new-keymap
+qmk compile
+```
