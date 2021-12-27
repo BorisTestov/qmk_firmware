@@ -1,4 +1,4 @@
-/* Copyright 2020 Jonathan Rascher
+/* Copyright 2021 Jonathan Rascher
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,15 +14,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#pragma once
+#include <stdint.h>
 
-#define BCAT_ORTHO_LAYERS
+#include "progmem.h"
 
-#if defined(KEYBOARD_crkbd_rev1)
-#    define EE_HANDS
-
-#    if defined(OLED_ENABLE)
-#        undef OLED_FONT_H
-#        define OLED_FONT_H "lib/glcdfont.c"
-#    endif
-#endif
+/* Adjust RGB static hue ranges for shorter gradients than default. */
+const uint8_t RGBLED_GRADIENT_RANGES[] PROGMEM = {255, 127, 63, 31, 15};
