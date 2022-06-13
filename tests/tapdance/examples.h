@@ -1,4 +1,4 @@
-/* Copyright 2021 Mats Nilsson
+/* Copyright 2022 Jouke Witteveen
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,7 +16,18 @@
 
 #pragma once
 
-#define MK_3_SPEED
-#define MK_MOMENTARY_ACCEL
-#define PERMISSIVE_HOLD
-#define TAPPING_TERM 250
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+enum {
+    TD_ESC_CAPS,
+    CT_EGG,
+    CT_FLSH,
+    CT_CLN,
+    X_CTL,
+};
+
+#ifdef __cplusplus
+}
+#endif
