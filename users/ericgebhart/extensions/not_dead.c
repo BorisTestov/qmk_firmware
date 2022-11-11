@@ -1,6 +1,5 @@
-#pragma once
 /*
-  Copyright 2018 Eric Gebhart <e.a.gebhart@gmail.com>
+  Copyright 2022 Eric Gebhart <e.a.gebhart@gmail.com>
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -16,13 +15,22 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef ericgebhart
-#define ericgebhart
+#include USERSPACE_H
 
-#include "layer_names.h"
+inline void not_dead(uint16_t kc1, keyrecord_t *record) {
+  if (record->event.pressed) {
+    tap_code16(kc1);
+    tap_code16(KC_SPACE);
+  }
+}
 
-#ifdef CONSOLE_ENABLE
-#include "print.h"
-#endif
+#define NOT_DEAD(KCKEY, KC01)             \
+  case KCKEY:                             \
+  not_dead(KC01, record);                 \
+  break;                                  \
 
-#endif
+void process_not_dead(uint16_t keycode, keyrecord_t *record) {
+  switch(keycode){
+#include "not_dead.def"
+  }
+}

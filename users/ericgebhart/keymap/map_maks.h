@@ -1,6 +1,5 @@
-#pragma once
 /*
-  Copyright 2018 Eric Gebhart <e.a.gebhart@gmail.com>
+  Copyright 2022 Eric Gebhart <e.a.gebhart@gmail.com>
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -15,14 +14,21 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-
-#ifndef ericgebhart
-#define ericgebhart
-
-#include "layer_names.h"
-
-#ifdef CONSOLE_ENABLE
-#include "print.h"
+#ifdef COLEMAK_LAYER_ENABLE
+B_LAYER(LANG_N(_COLEMAK), ___10_NUMBERS___, ___COLEMAK___),
 #endif
-
+#ifdef COLEMAK_DH_LAYER_ENABLE
+  B_LAYER(LANG_N(_COLEMAK_DH), ___10_NUMBERS___, ___COLEMAK_DH___),
+#endif
+#ifdef HALMAK_LAYER_ENABLE
+  B_LAYER(LANG_N(_HALMAK), ___10_NUMBERS___, ___HALMAK___),
+#endif
+#ifdef MINIMAK_LAYER_ENABLE
+  B_LAYER(LANG_N(_MINIMAK), ___10_NUMBERS___, ___MINIMAK___),
+#endif
+#ifdef MINIMAK_8_LAYER_ENABLE
+  B_LAYER(LANG_N(_MINIMAK_8), ___10_NUMBERS___, ___MINIMAK___),
+#endif
+#ifdef MINIMAK_12_LAYER_ENABLE
+  B_LAYER(LANG_N(_MINIMAK_12), ___10_NUMBERS___, ___MINIMAK___),
 #endif

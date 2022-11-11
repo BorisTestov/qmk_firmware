@@ -1,6 +1,5 @@
-#pragma once
 /*
-  Copyright 2018 Eric Gebhart <e.a.gebhart@gmail.com>
+  Copyright 2022 Eric Gebhart <e.a.gebhart@gmail.com>
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -15,14 +14,18 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-
-#ifndef ericgebhart
-#define ericgebhart
-
-#include "layer_names.h"
-
-#ifdef CONSOLE_ENABLE
-#include "print.h"
+#ifdef DVORAK_LAYER_ENABLE
+B_LAYER(LANG_N(_DVORAK), ___10_NUMBERS___, ___DVORAK___),
 #endif
-
+#ifdef DVORAK_RLC_IU_LAYER_ENABLE
+  B_LAYER(LANG_N(_DVORAK_RLC_IU), ___10_NUMBERS___, ___DVORAK_RLC_IU___),
+#endif
+#ifdef BOO_LAYER_ENABLE
+  B_LAYER(LANG_N(_BOO), ___10_NUMBERS___, ___BOO___),
+#endif
+#ifdef CAPEWELL_DVORAK_LAYER_ENABLE
+  B_LAYER(LANG_N(_CAPEWELL_DVORAK), ___10_NUMBERS___, ___CAPEWELL_DVORAK___),
+#endif
+#ifdef AHEI_LAYER_ENABLE
+  B_LAYER(LANG_N(_AHEI), ___10_NUMBERS___, ___AHEI___),
 #endif

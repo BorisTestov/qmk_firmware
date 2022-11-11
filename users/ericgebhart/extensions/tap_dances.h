@@ -16,13 +16,4 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef ericgebhart
-#define ericgebhart
-
-#include "layer_names.h"
-
-#ifdef CONSOLE_ENABLE
-#include "print.h"
-#endif
-
-#endif
+#include USERSPACE_H

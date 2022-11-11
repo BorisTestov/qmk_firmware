@@ -1,6 +1,5 @@
-#pragma once
 /*
-  Copyright 2018 Eric Gebhart <e.a.gebhart@gmail.com>
+  Copyright 2018-2022 Eric Gebhart <e.a.gebhart@gmail.com>
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -16,13 +15,24 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef ericgebhart
-#define ericgebhart
+// functional layers that would be different by language
 
-#include "layer_names.h"
-
-#ifdef CONSOLE_ENABLE
-#include "print.h"
+#ifdef ACCENTS_LAYER_ENABLE
+LANG_N(_ACCENTS),
+#endif
+#ifdef MORTE_LAYER_ENABLE
+  LANG_N(_MORTE),
+#endif
+#ifdef ACCENTS_MORTE_LAYER_ENABLE
+    LANG_N(_ACCENTS_MORTE),
 #endif
 
+#ifdef SYMBOL_LAYER_ENABLE
+  LANG_N(_SYMB),
+#endif
+#ifdef KEYPAD_LAYER_ENABLE
+  LANG_N(_KEYPAD),
+#endif
+#ifdef TOPROWS_LAYER_ENABLE
+  LANG_N(_TOPROWS),
 #endif

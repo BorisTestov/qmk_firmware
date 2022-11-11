@@ -1,6 +1,6 @@
 #pragma once
 /*
-  Copyright 2018 Eric Gebhart <e.a.gebhart@gmail.com>
+  Copyright 2018-2022 Eric Gebhart <e.a.gebhart@gmail.com>
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -16,13 +16,7 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef ericgebhart
-#define ericgebhart
+bool process_extensions(uint16_t keycode, keyrecord_t *record);
 
-#include "layer_names.h"
-
-#ifdef CONSOLE_ENABLE
-#include "print.h"
-#endif
-
-#endif
+#define PROCESS_EXTENSIONS                                      \
+  if (!process_extensions(keycode, record)) {return false;}

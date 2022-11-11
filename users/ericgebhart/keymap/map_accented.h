@@ -1,6 +1,5 @@
-#pragma once
 /*
-  Copyright 2018 Eric Gebhart <e.a.gebhart@gmail.com>
+  Copyright 2022 Eric Gebhart <e.a.gebhart@gmail.com>
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -15,14 +14,13 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-
-#ifndef ericgebhart
-#define ericgebhart
-
-#include "layer_names.h"
-
-#ifdef CONSOLE_ENABLE
-#include "print.h"
+// Accented character and dead key layers.
+#ifdef ACCENTS_LAYER_ENABLE
+  T_LAYER(LANG_N(_ACCENTS), ___ACCENTS___),
 #endif
-
+#ifdef MORTE_LAYER_ENABLE
+  T_LAYER(LANG_N(_MORTE), ___MORTE___),
+#endif
+#ifdef ACCENTS_MORTE_LAYER_ENABLE
+  T_LAYER(LANG_N(_ACCENTS_MORTE), ___ACCENTS_MORTE___),
 #endif

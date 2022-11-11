@@ -1,6 +1,5 @@
-#pragma once
 /*
-  Copyright 2018 Eric Gebhart <e.a.gebhart@gmail.com>
+  Copyright 2022 Eric Gebhart <e.a.gebhart@gmail.com>
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -15,14 +14,18 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-
-#ifndef ericgebhart
-#define ericgebhart
-
-#include "layer_names.h"
-
-#ifdef CONSOLE_ENABLE
-#include "print.h"
+#ifdef MTGAP_LAYER_ENABLE
+B_LAYER(LANG_N(_MTGAP), ___10_NUMBERS___, ___MTGAP___),
 #endif
 
+#ifdef CTGAP_LAYER_ENABLE
+  B_LAYER(LANG_N(_CTGAP), ___10_NUMBERS___, ___CTGAP___),
+#endif
+
+#ifdef APT_LAYER_ENABLE
+  B_LAYER(LANG_N(_APT), ___10_NUMBERS___, ___APT___),
+#endif
+
+#ifdef CANARY_LAYER_ENABLE
+  B_LAYER(LANG_N(_CANARY), ___10_NUMBERS___, ___CANARY___),
 #endif

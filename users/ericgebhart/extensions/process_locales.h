@@ -1,6 +1,6 @@
 #pragma once
 /*
-  Copyright 2018 Eric Gebhart <e.a.gebhart@gmail.com>
+  Copyright 2022 Eric Gebhart <e.a.gebhart@gmail.com>
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -16,13 +16,14 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef ericgebhart
-#define ericgebhart
+#include USERSPACE_H
 
-#include "layer_names.h"
+// Stuff we need for locale and layer switching
+// there can be more but we need to know where they start and end.
+// remember there's limitations on layers.
+// Our locales. so it's easy to switch between them.
 
-#ifdef CONSOLE_ENABLE
-#include "print.h"
-#endif
+bool process_locales(uint16_t keycode, keyrecord_t *record);
 
-#endif
+#define PROCESS_LOCALES                                         \
+  if (!process_locales(keycode, record)) { return false; }

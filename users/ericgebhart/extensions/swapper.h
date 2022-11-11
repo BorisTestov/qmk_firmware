@@ -1,6 +1,6 @@
 #pragma once
 /*
-  Copyright 2018 Eric Gebhart <e.a.gebhart@gmail.com>
+  Copyright 2018-2022 Eric Gebhart <e.a.gebhart@gmail.com>
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -16,13 +16,22 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef ericgebhart
-#define ericgebhart
+#include QMK_KEYBOARD_H
+#include USERSPACE_H
 
-#include "layer_names.h"
+typedef struct {
+    bool     active;
+    uint16_t mod;
+    uint16_t forward;
+    uint16_t reverse;
+    uint16_t forward_trigger;
+    uint16_t reverse_trigger;
+} swapper_state_t;
+extern swapper_state_t swapper_states[];
+extern uint8_t         NUM_SWAPPER_STATES;
 
-#ifdef CONSOLE_ENABLE
-#include "print.h"
-#endif
+#undef SWAPPER_KEY
+#define SWAPPER_KEY(KC, REVERSE_IT_KC, FWD_KC, REV_KC, MOD)     \
+  {false, MOD, FWD_KC, REV_KC, KC, REVERSE_IT_KC},
 
-#endif
+void process_swappers(uint16_t keycode, keyrecord_t *record);

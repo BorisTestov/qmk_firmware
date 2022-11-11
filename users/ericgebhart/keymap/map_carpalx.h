@@ -1,6 +1,5 @@
-#pragma once
 /*
-  Copyright 2018 Eric Gebhart <e.a.gebhart@gmail.com>
+  Copyright 2022 Eric Gebhart <e.a.gebhart@gmail.com>
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -15,14 +14,12 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-
-#ifndef ericgebhart
-#define ericgebhart
-
-#include "layer_names.h"
-
-#ifdef CONSOLE_ENABLE
-#include "print.h"
+#ifdef CARPALX_QFMLWY_LAYER_ENABLE
+B_LAYER(LANG_N(_CARPALX_QFMLWY), ___10_NUMBERS___, ___CARPALX_QFMLWY___),
 #endif
-
+#ifdef CARPALX_QGMLWB_LAYER_ENABLE
+  B_LAYER(LANG_N(_CARPALX_QGMLWB), ___10_NUMBERS___, ___CARPALX_QGMLWB___),
+#endif
+#ifdef CARPALX_QGMLWY_LAYER_ENABLE
+  B_LAYER(LANG_N(_CARPALX_QGMLWY), ___10_NUMBERS___, ___CARPALX_QGMLWY___),
 #endif

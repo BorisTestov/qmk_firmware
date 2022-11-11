@@ -1,4 +1,3 @@
-#pragma once
 /*
   Copyright 2018 Eric Gebhart <e.a.gebhart@gmail.com>
 
@@ -15,14 +14,21 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+#include USERSPACE_H
+#include "process_unicode_common.h"
 
-#ifndef ericgebhart
-#define ericgebhart
+#undef UC_STR
+#define UC_STR(KEYC, STRING)                    \
+  case KEYC:                                    \
+  if (record->event.pressed) {                  \
+    send_unicode_string(STRING);                \
+  }                                             \
+  break;
 
-#include "layer_names.h"
-
-#ifdef CONSOLE_ENABLE
-#include "print.h"
+void process_unicode_strs(uint16_t keycode, keyrecord_t *record){
+#if defined(UNICODE_ENABLE) && defined(SEND_UNICODE_ENABLE)
+  switch (keycode) {
+#include "unicode.def"
+      }
 #endif
-
-#endif
+}

@@ -1,6 +1,5 @@
-#pragma once
 /*
-  Copyright 2018 Eric Gebhart <e.a.gebhart@gmail.com>
+  Copyright 2022 Eric Gebhart <e.a.gebhart@gmail.com>
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -15,14 +14,12 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-
-#ifndef ericgebhart
-#define ericgebhart
-
-#include "layer_names.h"
-
-#ifdef CONSOLE_ENABLE
-#include "print.h"
+#ifdef QWERTY_LAYER_ENABLE
+B_LAYER(LANG_N(_QWERTY), ___10_NUMBERS___, ___QWERTY___),
 #endif
-
+#ifdef NORMAN_LAYER_ENABLE
+  B_LAYER(LANG_N(_NORMAN), ___10_NUMBERS___, ___NORMAN___),
+#endif
+#ifdef WORKMAN_LAYER_ENABLE
+  B_LAYER(LANG_N(_WORKMAN), ___10_NUMBERS___, ___WORKMAN___),
 #endif
