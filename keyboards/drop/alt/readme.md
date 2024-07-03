@@ -11,8 +11,8 @@ The Massdrop ALT is a 65% mechanical keyboard featuring dual USB-C connectors, a
 * Download and install [QMK MSYS](https://msys.qmk.fm/)
 * From QMK MSYS run 
     ```
-    qmk setup BorisTestov/qmk_firmware -y -H /c/Users/boris/repos/qmk_firmware
-    qmk config user.keyboard=drop/alt/v2 user.keymap=fylch_alt
+    qmk setup BorisTestov/qmk_firmware -y
+    qmk config user.keyboard=massdrop/alt user.keymap=fylch_alt
     qmk compile
     ```
     First two steps (setup and config) executed only once. On future updates run only `qmk compile`
@@ -20,6 +20,6 @@ The Massdrop ALT is a 65% mechanical keyboard featuring dual USB-C connectors, a
 * Download [mdloader](https://github.com/Massdrop/mdloader/releases)
 * From terminal run
     ```
-    qmk flash
+    .\mdloader.exe --first --download .\qmk_firmware\.build\massdrop_alt_fylch_alt.hex --restart
     ```
 * Hold MD Boot key (FN + B) for 0.5 seconds
