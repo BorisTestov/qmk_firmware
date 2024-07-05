@@ -68,8 +68,11 @@ void td_layer_mod_finished(tap_dance_state_t *state, void *user_data) {
 
 void td_layer_mod_reset(tap_dance_state_t *state, void *user_data) {
     if (state->count == 1) {
-        change_effect_color(alt_config.layer_hue[alt_config.current_layer]);
         layer_off(1);
+        if (alt_config.current_layer == 2) {
+            layer_invert(2);
+        }
+        change_layer(0);
     }
 }
 

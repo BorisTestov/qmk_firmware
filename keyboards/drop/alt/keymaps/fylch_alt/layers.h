@@ -20,7 +20,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
     [2] = LAYOUT_65_ansi_blocker(
         _______, TD(TD_BOOKMARK_1), TD(TD_BOOKMARK_2), TD(TD_BOOKMARK_3), TD(TD_BOOKMARK_4), TD(TD_BOOKMARK_5), TD(TD_BOOKMARK_6), TD(TD_BOOKMARK_7), TD(TD_BOOKMARK_8), TD(TD_BOOKMARK_9), TD(TD_BOOKMARK_REMOVE), _______, _______, TD(TD_STOP), _______,
-        _______, _______, _______, _______, TD(TD_REPLACE), _______, PYCHARM_FIND_USAGES, PYCHARM_TOGGLE_CASE, _______, _______, _______, PYCHARM_PREV_TAB, PYCHARM_NEXT_TAB, _______, _______,
+        _______, _______, _______, _______, TD(TD_REPLACE), PYCHARM_TRANSPOSE, PYCHARM_FIND_USAGES, PYCHARM_TOGGLE_CASE, _______, _______, _______, PYCHARM_PREV_TAB, PYCHARM_NEXT_TAB, _______, _______,
         _______, _______, PYCHARM_SETTINGS, PYCHARM_GO_TO_DECLARATION, TD(TD_FIND), _______, TD(TD_HIDE), _______, _______, PYCHARM_REFORMAT, _______, _______,          TD(TD_RUN), _______,
         _______, _______, _______, _______, _______, TD(TD_BREAKPOINT), TD(TD_BREAKPOINT_NAVIGATION), _______, PYCHARM_PREV_CHANGE, PYCHARM_NEXT_CHANGE, PYCHARM_COMMENT, _______,          _______, _______,
         _______, _______, _______,                            _______,                            _______, _______, _______, _______, _______
