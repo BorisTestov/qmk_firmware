@@ -18,3 +18,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #pragma once
 
 #define FORCE_NKRO
+#define NO_SUSPEND_POWER_DOWN 1

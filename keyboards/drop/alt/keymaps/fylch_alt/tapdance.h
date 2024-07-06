@@ -50,7 +50,6 @@ void td_ru_finished(tap_dance_state_t *state, void *user_data) {
 
 void td_layer_mod_finished(tap_dance_state_t *state, void *user_data) {
     if (state->count == 1) {
-        // We're not saving momentary layers, only persistent layers
         change_effect_color(alt_config.layer_hue[1]);
         layer_on(1);
     } else if (state->count == 2) {
