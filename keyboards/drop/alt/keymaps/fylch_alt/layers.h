@@ -16,7 +16,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, RGB_SPD, RGB_VAI, RGB_SPI, RGB_HUI, RGB_SAI, _______, _______, _______,_______, _______, _______, _______, _______, KC_PGUP,
         _______, RGB_RMOD,RGB_VAD, RGB_MOD, RGB_HUD, RGB_SAD, _______, _______, _______, _______, _______, _______,          _______, KC_PGDN,
         _______, _______, _______, _______, _______, MD_BOOT, _______, _______, _______, _______, _______, _______,          _______, _______,
-        _______, _______, _______,                            _______,                            _______, _______, _______, _______, _______
+        _______, _______, _______,                            _______,                            _______, _______, KC_HOME, _______, KC_END
     ),
     [2] = LAYOUT_65_ansi_blocker(
         _______, TD(TD_BOOKMARK_1), TD(TD_BOOKMARK_2), TD(TD_BOOKMARK_3), TD(TD_BOOKMARK_4), TD(TD_BOOKMARK_5), TD(TD_BOOKMARK_6), TD(TD_BOOKMARK_7), TD(TD_BOOKMARK_8), TD(TD_BOOKMARK_9), TD(TD_BOOKMARK_REMOVE), _______, _______, TD(TD_STOP), _______,

@@ -3,6 +3,8 @@
 #include "alt_config.h"
 #include "utils.h"
 
+static bool shift_held = false;
+
 enum {
     TD_CTRL,
     TD_EN,
@@ -210,11 +212,33 @@ void td_stop_finished(tap_dance_state_t *state, void *user_data) {
     }
 }
 
+void shift_finished(tap_dance_state_t *state, void *user_data) {
+    shift_held = state->pressed;
+
+    if (state->count == 1 && state->pressed) {
+        register_code(KC_LSFT);
+    } else if (state->count == 2) {
+        tap_code(KC_LCTL);
+        wait_ms(150);
+        tap_code(KC_LCTL);
+    } else if (state->count == 1) {
+        tap_code(KC_LSFT);
+    }
+}
+
+void shift_reset(tap_dance_state_t *state, void *user_data) {
+    if (shift_held) {
+        unregister_code(KC_LSFT);
+    }
+    shift_held = false;
+}
+
+
 tap_dance_action_t tap_dance_actions[] = {
     [TD_CTRL] = ACTION_TAP_DANCE_DOUBLE(KC_LCTL, KC_ESC),
     [TD_EN] = ACTION_TAP_DANCE_FN(td_en_finished),
     [TD_RU] = ACTION_TAP_DANCE_FN(td_ru_finished),
-    [TD_SHIFT] = ACTION_TAP_DANCE_DOUBLE(KC_LSFT, KC_CAPS_LOCK),
+    [TD_SHIFT] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, shift_finished, shift_reset),
     [TD_LAYER_MOD] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, td_layer_mod_finished, td_layer_mod_reset),
     [TD_BOOKMARK_1] = ACTION_TAP_DANCE_FN(td_bookmark_1_finished),
     [TD_BOOKMARK_2] = ACTION_TAP_DANCE_FN(td_bookmark_2_finished),

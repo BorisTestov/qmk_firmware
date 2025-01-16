@@ -9,6 +9,7 @@
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     static uint32_t key_timer;
+    static bool enter_modifier_pressed = false;
 
     switch (keycode) {
         case MD_BOOT:
@@ -18,6 +19,28 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 if (timer_elapsed32(key_timer) >= 500) {
                     reset_keyboard();
                 }
+            }
+            return false;
+        case KC_UP:
+            if (record->event.pressed) {
+                register_code(KC_UP);
+                enter_modifier_pressed = true;
+            }
+            else {
+                unregister_code(KC_UP);
+                enter_modifier_pressed = false;
+            }
+            return false;
+        case KC_ENT:
+            if (record->event.pressed) {
+                if (enter_modifier_pressed) {
+                    SEND_STRING(SS_LCTL(SS_TAP(X_ENTER)));
+                } else {
+                    register_code(KC_ENT);
+                }
+            }
+            else {
+                unregister_code(KC_ENT);
             }
             return false;
         case PYCHARM_COMMENT:
@@ -73,6 +96,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case PYCHARM_TRANSPOSE:
             if (record->event.pressed) {
                 SEND_STRING(SS_LCTL(SS_LALT(SS_TAP(X_T))));
+            }
+            return false;
+        case KC_F20:
+            if (record->event.pressed) {
+                uprintf("F20 pressed\n");
+                tap_code(KC_LCTL);
+                wait_ms(150);
+                tap_code(KC_LCTL);
             }
             return false;
         default:
